@@ -34,7 +34,7 @@ class Customer
      */
     public function addRental(Rental $rental)
     {
-        $this->rentals[] = $rental;
+        $this->rentals[] = $rental; 
     }
 
     /**

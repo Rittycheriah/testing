@@ -26,6 +26,10 @@ $rental3 = new Rental(
     ), 5
 );
 
+// need to know how to 
+// calculate the pricing. what is it doing to come
+// up with the intialize val of $21.5
+// 
 $customer = new Customer('Joe Schmoe');
 
 $customer->addRental($rental1);
