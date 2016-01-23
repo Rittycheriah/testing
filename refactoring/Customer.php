@@ -48,29 +48,19 @@ class Customer
 
         $result = 'Rental Record for ' . $this->name() . PHP_EOL;
 
+        // calling the customer rentals for this object
         foreach ($this->rentals as $rental) {
+            // the var to add final amount owed
             $thisAmount = 0;
 
-            switch($rental->movie()->priceCode()) {
-                case Movie::REGULAR:
-                    $thisAmount += 2;
-                    if ($rental->daysRented() > 2) {
-                        $thisAmount += ($rental->daysRented() - 2) * 1.5;
-                    }
-                    break;
-                case Movie::NEW_RELEASE:
-                    $thisAmount += $rental->daysRented() * 3;
-                    break;
-                case Movie::CHILDRENS:
-                    $thisAmount += 1.5;
-                    if ($rental->daysRented() > 3) {
-                        $thisAmount += ($rental->daysRented() - 3) * 1.5;
-                    }
-                    break;
-            }
+            $thisAmount += $rental->daysRented() * $rental->movie()->category()->categoryPricing();
 
+            // feed this current amount back to to total amount
             $totalAmount += $thisAmount;
 
+            // calculating frequentrenter Pts -- 
+            // if price code is New Release & days rented is more than 1, increment
+            // by one
             $frequentRenterPoints++;
             if ($rental->movie()->priceCode() === Movie::NEW_RELEASE && $rental->daysRented() > 1) {
                 $frequentRenterPoints++;
@@ -96,23 +86,7 @@ class Customer
         foreach ($this->rentals as $rental) {
             $thisAmount = 0;
 
-            switch($rental->movie()->priceCode()) {
-                case Movie::REGULAR:
-                    $thisAmount += 2;
-                    if ($rental->daysRented() > 2) {
-                        $thisAmount += ($rental->daysRented() - 2) * 1.5;
-                    }
-                    break;
-                case Movie::NEW_RELEASE:
-                    $thisAmount += $rental->daysRented() * 3;
-                    break;
-                case Movie::CHILDRENS:
-                    $thisAmount += 1.5;
-                    if ($rental->daysRented() > 3) {
-                        $thisAmount += ($rental->daysRented() - 3) * 1.5;
-                    }
-                    break;
-            }
+            $thisAmount += $rental->daysRented() * $rental->movie()->category()->categoryPricing();
 
             $totalAmount += $thisAmount;
 

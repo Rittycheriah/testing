@@ -4,32 +4,38 @@ header('Content-Type: text/plain');
 require_once('Movie.php');
 require_once('Rental.php');
 require_once('Customer.php');
+require_once('Category.php');
 
 $rental1 = new Rental(
     new Movie(
         'Back to the Future',
-        Movie::CHILDRENS
+        new Category(
+            'CHILDRENS',
+            1.5
+        )
     ), 4
 );
 
 $rental2 = new Rental(
     new Movie(
         'Office Space',
-        Movie::REGULAR
+        new Category(
+            'NEW RELEASE',
+            3
+        )
     ), 3
 );
 
 $rental3 = new Rental(
     new Movie(
         'The Big Lebowski',
-        Movie::NEW_RELEASE
+        new Category(
+            'CLASSIC',
+            2
+        )
     ), 5
 );
 
-// need to know how to 
-// calculate the pricing. what is it doing to come
-// up with the intialize val of $21.5
-// 
 $customer = new Customer('Joe Schmoe');
 
 $customer->addRental($rental1);

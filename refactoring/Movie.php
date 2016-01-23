@@ -2,10 +2,6 @@
 
 class Movie
 {
-    const CHILDRENS = 2;
-    const REGULAR = 0;
-    const NEW_RELEASE = 1;
-
     /**
      * @var string
      */
@@ -18,12 +14,12 @@ class Movie
 
     /**
      * @param string $name
-     * @param int $priceCode
+     * @param Category $category
      */
-    public function __construct($name, $priceCode)
+    public function __construct($name, Category $category)
     {
         $this->name = $name;
-        $this->priceCode = $priceCode;
+        $this->category = $category;
     }
 
     /**
@@ -41,4 +37,14 @@ class Movie
     {
         return $this->priceCode;
     }
-}
+    
+    /**
+     * @return Category
+     */
+    public function category()
+    {
+        return $this->category;
+    }
+
+}  
+
