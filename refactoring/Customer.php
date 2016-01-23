@@ -40,7 +40,6 @@ class Customer
     /**
      * @return string
      */
-
     public function statement()
     {
         $totalAmount = 0;
@@ -90,12 +89,15 @@ class Customer
 
             $totalAmount += $thisAmount;
 
-            // $frequentRenterPoints++;
-            // if ($rental->movie()->priceCode() ===  && $rental->daysRented() > 1) {
-            //     $frequentRenterPoints++;
-            // }
-
             $result1 .= "\t" . "<li>" . $rental->movie()->name() . " - ". $thisAmount . "</li>". PHP_EOL;
+        }
+
+        foreach($this->rentals as $rental){
+            $total = 0;
+
+            $total += $rental->daysRented() * $rental->movie()->category()->categoryPoints();
+
+            $total += $frequentRenterPoints;
         }
 
         $result1 .= '<p>Amount owed is <em>' . $totalAmount . '</em></p>' . PHP_EOL;
@@ -103,4 +105,6 @@ class Customer
 
         return $result1;
     }
+
+
 }

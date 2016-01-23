@@ -11,7 +11,8 @@ $rental1 = new Rental(
         'Back to the Future',
         new Category(
             'CHILDRENS',
-            1.5
+            1.5,
+            3
         )
     ), 4
 );
@@ -21,7 +22,8 @@ $rental2 = new Rental(
         'Office Space',
         new Category(
             'NEW RELEASE',
-            3
+            3,
+            .25
         )
     ), 3
 );
@@ -31,7 +33,8 @@ $rental3 = new Rental(
         'The Big Lebowski',
         new Category(
             'CLASSIC',
-            2
+            2,
+            1.5
         )
     ), 5
 );

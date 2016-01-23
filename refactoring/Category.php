@@ -12,6 +12,11 @@ class Category {
     private $price;
 
     /**
+    * @var int points
+    */
+    private $points;
+
+    /**
      * @var Categories[]
      */
     private $categories;
@@ -22,8 +27,20 @@ class Category {
      */
     public function __construct($category, $price)
     {
+        // categoryName
         $this->categoryName = $category;
+        // price as defined by category
         $this->price = $price;
+        // total # of points per day
+        $this->pts = $points;
+    }
+
+    /**
+     * @return int
+     */
+    public function categoryPoints()
+    {
+        return $this->points;
     }
 
     /**
