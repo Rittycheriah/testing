@@ -90,10 +90,10 @@ class Customer
 
             $totalAmount += $thisAmount;
 
-            $frequentRenterPoints++;
-            if ($rental->movie()->priceCode() === Movie::NEW_RELEASE && $rental->daysRented() > 1) {
-                $frequentRenterPoints++;
-            }
+            // $frequentRenterPoints++;
+            // if ($rental->movie()->priceCode() ===  && $rental->daysRented() > 1) {
+            //     $frequentRenterPoints++;
+            // }
 
             $result1 .= "\t" . "<li>" . $rental->movie()->name() . " - ". $thisAmount . "</li>". PHP_EOL;
         }

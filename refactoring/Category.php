@@ -31,7 +31,7 @@ class Category {
      */
     public function categoryPricing()
     {
-        return $this->$price;
+        return $this->price;
     }
 
     /**
@@ -39,7 +39,7 @@ class Category {
      */
     public function categoryName()
     {
-        return $this->$categoryName;
+        return $this->categoryName;
     }
 
     /**
