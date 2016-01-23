@@ -22,17 +22,20 @@ class Category {
     private $categories;
 
     /**
-     * @param string $catName
-     * @param int $pricePerCat
+     * @param string $category
+     * @param int $price
+     * @param int $pts
      */
-    public function __construct($category, $price)
+    public function __construct($category, $price, $pts)
     {
         // categoryName
         $this->categoryName = $category;
-        // price as defined by category
+        
+        // price as defined by category per day
         $this->price = $price;
+
         // total # of points per day
-        $this->pts = $points;
+        $this->points = $pts;
     }
 
     /**

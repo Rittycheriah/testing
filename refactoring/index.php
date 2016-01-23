@@ -23,7 +23,7 @@ $rental2 = new Rental(
         new Category(
             'NEW RELEASE',
             3,
-            .25
+            1
         )
     ), 3
 );
@@ -34,7 +34,7 @@ $rental3 = new Rental(
         new Category(
             'CLASSIC',
             2,
-            1.5
+            1
         )
     ), 5
 );
@@ -46,3 +46,4 @@ $customer->addRental($rental2);
 $customer->addRental($rental3);
 
 echo $customer->htmlStatement();
+echo $customer->statement();
